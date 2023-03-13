@@ -1,5 +1,5 @@
 status=""
-
+objects=""
 function setup() {
     canvas = createCanvas(480, 380);
     canvas.center();
@@ -17,7 +17,7 @@ function modelLoaded() {
     console.log("Modelo Carregado!")
     status = true;
 }
-function gotresults(error,results) {
+function gotResults(error,results) {
   if (error) {
     console.log(error)
   }
@@ -27,7 +27,7 @@ function gotresults(error,results) {
 function draw() {
   image(video, 0, 0, 380, 380);
   if (status != "") {
-    objectDetector.detect(video, gotResult);
+    objectDetector.detect(video, gotResults);
     for (i = 0; i < objects.length; i++) {
       document.getElementById("status").innerHTML =
         "Status: Objetos Detectados";
